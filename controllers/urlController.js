@@ -1,7 +1,5 @@
 const Url = require('../models/urlModel');
 const shortid = require('shortid');
-
-// Create a new shortened URL
 exports.createShortUrl = async (req, res) => {
     try {
         const { originalUrl } = req.body;
@@ -22,8 +20,6 @@ exports.createShortUrl = async (req, res) => {
         });
     }
 };
-
-// Get details of a specific URL by ID
 exports.getUrlById = async (req, res) => {
     try {
         const url = await Url.findById(req.params.id);
@@ -49,7 +45,6 @@ exports.getUrlById = async (req, res) => {
     }
 };
 
-// Get all URLs
 exports.getAllUrls = async (req, res) => {
     try {
         const urls = await Url.find();
@@ -68,7 +63,6 @@ exports.getAllUrls = async (req, res) => {
     }
 };
 
-// Update a URL
 exports.updateUrl = async (req, res) => {
     try {
         const updatedUrl = await Url.findByIdAndUpdate(req.params.id, req.body, {
@@ -97,7 +91,6 @@ exports.updateUrl = async (req, res) => {
     }
 };
 
-// Delete a URL
 exports.deleteUrl = async (req, res) => {
     try {
         const url = await Url.findByIdAndDelete(req.params.id);
